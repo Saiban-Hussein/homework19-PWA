@@ -15,14 +15,9 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/db", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://maurice:pass123@ds227565.mlab.com:27565/heroku_1rh6ds4r", {
   useNewUrlParser: true,
-  useFindAndModify: false
-
-}, () => 
-console.log("Connected to DB")
-);
-
+});
 
 
 // routes
