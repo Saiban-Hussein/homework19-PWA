@@ -15,11 +15,16 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-
-mongoose.connect("mongodb://localhost/budget", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/db", {
   useNewUrlParser: true,
   useFindAndModify: false
-});
+
+}, () => 
+console.log("Connected to DB")
+);
+
+
+
 // routes
 app.use(require("./routes/api.js"));
 
